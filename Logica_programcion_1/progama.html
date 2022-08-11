@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Documento sin título</title>
+  </head>
+  <body>
+    <script>
+      function saltar() {
+        document.write("<br>");
+        document.write("<br>");
+        document.write("<br>");
+      }
+      function imprimir(text) {
+        document.write(text);
+        saltar();
+      }
+
+      const edad1 = 35;
+      const edad2 = 45;
+      const dif = edad2 - edad1;
+
+      imprimir("La edad de mie hermano es " + edad1);
+
+      imprimir("Mi edad es " + edad2);
+
+      imprimir("La diferencia de edad es " + dif);
+    </script>
+  </body>
+</html>
