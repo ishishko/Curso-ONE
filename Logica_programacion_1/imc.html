@@ -1,0 +1,64 @@
+s <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PROGRAMA IMC</title>
+  </head>
+  <body>
+    <!-- <h1>PROGRAMA CALCULO IMC</h1> -->
+    <script>
+      const imcs = [];
+      let promedio = 0;
+      let imc = 0;
+
+      fprompt();
+      fprompt();
+      fprompt();
+
+      function saltarLinea() {
+        document.write("<br>");
+        document.write("<hr>");
+        document.write("<br>");
+      }
+
+      function imprimir(frase) {
+        document.write("<big>" + frase + "</big>");
+        saltarLinea();
+      }
+
+      function indicadorMC(nombre, peso, altura) {
+        imc = peso / (altura * altura);
+        imprimir(`El IMC de ${nombre} es de ${imc}`);
+        salud(imc);
+        imcs.push(imc);
+        promedio += imc;
+      }
+
+      function promedioIMC() {
+        promedio = promedio / imcs.length;
+        imprimir(`El promedio es ${promedio}`);
+      }
+
+      function fprompt() {
+        const usuarion = prompt("Ingrese su Nombre :");
+        const usuarioa = parseFloat(prompt("Ingrese su altura en metros :"));
+        const usuariop = parseFloat(prompt("Ingrese su pero en kg :"));
+        indicadorMC(usuarion, usuariop, usuarioa);
+        console.log(usuarion, usuarioa, usuariop);
+      }
+
+      function salud(imc) {
+        if (imc < 18.5) {
+          imprimir("Sufre de peso insuficiente");
+        } else if (18.5 < imc < 25) {
+          imprimir("Su peso es normal");
+        } else {
+          imprimir("Sufre de sobrepeso");
+        }
+      }
+      promedioIMC();
+    </script>
+  </body>
+</html>
