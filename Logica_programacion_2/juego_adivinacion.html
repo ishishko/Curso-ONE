@@ -8,27 +8,42 @@
   </head>
   <body>
     <h1>Juego de Adivinacion</h1>
+    <input type="text" />
+    <button>Verificar si acerto el numero</button>
     <script>
-      const numero = Math.round(Math.random() * 10);
-      console.log(numero);
-      let intentos = 1;
-      let adivina = 0;
-      while (intentos < 4) {
-        adivina = parseInt(prompt("Ingrese un numero entre 0 y 10"));
+      const secreto = Math.round(Math.random() * 10);
+      let input = document.querySelector("input");
+      const button = document.querySelector("button");
+      let intentos = 0;
+      let numero = 0;
 
-        if (adivina === numero) {
+      console.log(secreto);
+
+      button.onclick = verificar;
+      input.focus();
+
+      function verificar() {
+        numero = parseInt(input.value);
+        intentos = intentos + 1;
+        if (secreto == numero) {
+          termino();
           alert("CORRECTO");
-          break;
         } else {
           alert("Usted erroneo, intente nuevamente");
         }
-        intentos = intentos + 1;
+        input.value = "";
+        input.focus();
+        if (intentos == 3) {
+          termino();
+        }
       }
 
-      if (adivina === numero) {
-        imprimir(`Usted acerto en el intento ${intentos} y el numero era ${numero}!!!`);
-      } else {
-        imprimir("Usted no adivino. El numero era " + numero);
+      function termino() {
+        if (secreto === numero) {
+          imprimir(`Usted acerto en el intento ${intentos} y el numero era ${secreto}!!!`);
+        } else {
+          imprimir("Usted no adivino. El numero era " + secreto);
+        }
       }
 
       function saltarLinea() {

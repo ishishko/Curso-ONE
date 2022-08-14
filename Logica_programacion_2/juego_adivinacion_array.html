@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input />
+    <button>Verificar secretos</button>
+
+    <script>
+      const secretos = sortear(4);
+
+      const button = document.querySelector("button");
+      const input = document.querySelector("input");
+
+      button.onclick = verificar;
+      input.focus();
+      console.log(secretos);
+
+      function sortear(cantidad) {
+        const secretos1 = [];
+        let contador = 0;
+
+        while (contador < cantidad) {
+          const nuevoNumero = aleatorio();
+          let encontrado = false;
+
+          if (nuevoNumero != 0) {
+            for (let i = 0; i < secretos1.length; i++) {
+              if (nuevoNumero == secretos1[i]) {
+                encontrado = true;
+              }
+            }
+            if (encontrado == false) {
+              secretos1.push(nuevoNumero);
+              contador++;
+            }
+          }
+        }
+        return secretos1;
+      }
+
+      function aleatorio() {
+        return Math.round(Math.random() * 10);
+      }
+      function verificar() {
+        let encontrado = false;
+
+        for (let i = 0; i < secretos.length; i++) {
+          console.log(secretos.length);
+          if (parseInt(input.value) == secretos[i]) {
+            alert("Correcto");
+            encontrado = true;
+            break;
+          }
+        }
+        if (encontrado == false) {
+          alert("Losser");
+        }
+        input.value = "";
+        input.focus();
+      }
+    </script>
+  </body>
+</html>
