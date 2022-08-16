@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas width="600" height="400"> </canvas>
+    <script>
+      const pantalla = document.querySelector("canvas");
+      let pincel = pantalla.getContext("2d");
+
+      let x = 0;
+
+      while (x < 600) {
+        dibujarCuadrado(x, 0, "green");
+        dibujarCuadrado(x, 50, "green");
+        dibujarCuadrado(x, 100, "yellow");
+        x = x + 50;
+      }
+
+      for (let i = 0; i < 600; i = i + 50) {
+        dibujarCuadrado(i, 150, "yellow");
+        dibujarCuadrado(i, 200, "red");
+        dibujarCuadrado(i, 250, "red");
+      }
+
+      function dibujarCuadrado(x, y, color) {
+        pincel.fillStyle = color;
+        pincel.fillRect(x, y, 50, 50);
+        pincel.strokeStyle = "black";
+        pincel.strokeRect(x, y, 50, 50);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas width="600" height="400"> </canvas>
+    <script>
+      const pantalla = document.querySelector("canvas");
+      const pincel = pantalla.getContext("2d");
+      const colores = ["blue", "red", "green"];
+      let color = 0;
+
+      pincel.fillStyle = "grey";
+      pincel.fillRect(0, 0, 600, 400);
+
+      pantalla.onclick = dibujarCirculo;
+      pantalla.oncontextmenu = alterarColor;
+
+      /*function exibirAlert(evento) {
+        const x = evento.pageX - pantalla.offsetLeft;
+        const y = evento.pageY - pantalla.offsetTop;
+        console.log(evento);
+        alert("usted hiso un click " + x + " , " + y);
+      }*/
+      function dibujarCirculo(evento) {
+        const x = evento.pageX - pantalla.offsetLeft;
+        const y = evento.pageY - pantalla.offsetTop;
+        pincel.fillStyle = colores[color];
+        pincel.beginPath();
+        pincel.arc(x, y, 10, 0, 2 * 3.14);
+        pincel.fill();
+        console.log(x, y);
+      }
+
+      function alterarColor() {
+        color++;
+        if (color == 3) {
+          color = 0;
+        }
+      }
+      //Aquí viene el texto faltante
+    </script>
+  </body>
+</html>
