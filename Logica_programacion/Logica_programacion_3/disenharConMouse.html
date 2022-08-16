@@ -24,7 +24,7 @@
       function dibujarCirculo(evento) {
         var x = evento.pageX - pantalla.offsetLeft;
         var y = evento.pageY - pantalla.offsetTop;
-        if ((x < 150 && y > 54) || x > 150) {
+        if ((x < 150 && y >= 54) || x > 150) {
           if (puedoDibujar) {
             //pincel.fillStyle = "blue";
             pincel.beginPath();
