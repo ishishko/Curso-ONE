@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Juego de Adivinacion</h1>
+    <input type="text" />
+    <button>Verificar si acerto el numero</button>
+    <script>
+      const secreto = Math.round(Math.random() * 10);
+      let input = document.querySelector("input");
+      const button = document.querySelector("button");
+      let intentos = 0;
+      let numero = 0;
+
+      console.log(secreto);
+
+      button.onclick = verificar;
+      input.focus();
+
+      function verificar() {
+        numero = parseInt(input.value);
+        intentos = intentos + 1;
+        if (secreto == numero) {
+          termino();
+          alert("CORRECTO");
+        } else {
+          alert("Usted erroneo, intente nuevamente");
+        }
+        input.value = "";
+        input.focus();
+        if (intentos == 3) {
+          termino();
+        }
+      }
+
+      function termino() {
+        if (secreto === numero) {
+          imprimir(`Usted acerto en el intento ${intentos} y el numero era ${secreto}!!!`);
+        } else {
+          imprimir("Usted no adivino. El numero era " + secreto);
+        }
+      }
+
+      function saltarLinea() {
+        document.write("<br>");
+        document.write("<hr>");
+        document.write("<br>");
+      }
+
+      function imprimir(frase) {
+        document.write("<big>" + frase + "</big>");
+        saltarLinea();
+      }
+    </script>
+  </body>
+</html>

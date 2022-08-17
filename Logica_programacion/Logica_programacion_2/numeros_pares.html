@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>PROGRAMA</title>
+      </head>
+      <body>
+        <h1>PROGRAMA media_edades</h1>
+        <script>
+          let maximo = 0;
+
+          while (maximo <= 100) {
+            if (maximo % 2 == 0) {
+              imprimir(`El numero ${maximo} es par`);
+            }
+            maximo++;
+          }
+
+          imprimir("FIN");
+          function saltarLinea() {
+            document.write("<br>");
+            document.write("<hr>");
+          }
+
+          function imprimir(frase) {
+            document.write("<big>" + frase + "</big>");
+            saltarLinea();
+          }
+        </script>
+      </body>
+    </html>
+  </body>
+</html>

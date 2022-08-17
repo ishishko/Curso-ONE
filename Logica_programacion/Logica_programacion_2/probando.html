@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const sentencia = "Tarea que queremos repetir<br>";
+
+      //El bucle for esta compuesto por 3 partes separadas por ";"
+      //1- En la Primer parte del for se declara la variable "i" con su valor inicial. Esta solo existira dentro del bucle
+      //2- En la segunda parte determinamos la condicion de "i" que mientras se cumpla se repetira el bucle
+      //3- En la tercera parte determinamos el incremento de "i", esto significa que mientras se ejecute una
+      //    vuelta de bucle "i" se incrementara en el valor declarado
+
+      //-------Parte1----Parte2----Parte3
+      for (let i = 0; i < 10; i = i + 1) {
+        document.write(sentencia);
+        // "i" se incremantara en cada vuelta al estar declarada en el () del for
+        document.write(i + "<br>");
+      }
+
+      //otra diferencia con el while es que no necesitamos establecer un contador dentro del bucle
+      //ya que el incremento se encuentra declarado en la parte3
+    </script>
+  </body>
+</html>

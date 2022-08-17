@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas width="600" height="400"></canvas>
+    <script>
+      var pantalla = document.querySelector("canvas");
+      var pincel = pantalla.getContext("2d");
+      const colores = ["red", "green", "blue"];
+      var puedoDibujar = false;
+
+      pincel.fillStyle = "grey";
+      pincel.fillRect(0, 0, 600, 400);
+      pantalla.onmousemove = dibujarCirculo;
+      pantalla.onclick = seleccionarColor;
+      paleta();
+      pincel.fillStyle = "blue";
+
+      function dibujarCirculo(evento) {
+        var x = evento.pageX - pantalla.offsetLeft;
+        var y = evento.pageY - pantalla.offsetTop;
+        if ((x < 150 && y >= 54) || x > 150) {
+          if (puedoDibujar) {
+            //pincel.fillStyle = "blue";
+            pincel.beginPath();
+            pincel.arc(x, y, 5, 0, 2 * 3.14);
+            pincel.fill();
+          }
+        }
+      }
+
+      function paleta() {
+        for (let i = 0; i < 3; i++) {
+          pincel.fillStyle = colores[i];
+          console.log(colores[0]);
+          pincel.fillRect(i * 50, 0, 50, 50);
+        }
+      }
+
+      function seleccionarColor(evento) {
+        let x = evento.pageX - pantalla.offsetLeft;
+        let y = evento.pageY - pantalla.offsetTop;
+        if (0 < x && x <= 50 && 0 < y && y < 50) {
+          pincel.fillStyle = "red";
+        }
+        if (50 < x && x <= 100 && 0 < y && y < 50) {
+          pincel.fillStyle = "green";
+        }
+        if (100 < x && x <= 150 && 0 < y && y < 50) {
+          pincel.fillStyle = "blue";
+        }
+      }
+
+      function habilitarDibujar() {
+        puedoDibujar = true;
+      }
+
+      function deshabilitarDibujar() {
+        puedoDibujar = false;
+      }
+
+      pantalla.onmousedown = habilitarDibujar;
+
+      pantalla.onmouseup = deshabilitarDibujar;
+    </script>
+  </body>
+</html>
